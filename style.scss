@@ -3,6 +3,9 @@ body{
   padding: 0;
 }
 
+$tester-font: AvantGarde, Arial, sans-serif;
+$tester-font-bold: AvantGardeDemi, Arial, sans-serif;
+$tester-green-light: #b4c832;
 .clearfix{
   &:before, &:after{
     display: table;
@@ -13,9 +16,13 @@ body{
   }
 }
 .tester-wizard-container{
+  width: 952px;
+  margin: 0 auto;
   *{
     box-sizing: border-box;
+    font-family: $tester-font;
   }
+
   ::-webkit-input-placeholder{
     color: #000000;
   }
@@ -28,6 +35,17 @@ body{
   :-moz-placeholder{
     color: #000000;
   }
+  .wizard-container-left{
+    float: left;
+  }
+  .wizard-container-right{
+    float: right;
+  }
+
+  .wizard-form{
+    width: 628px;
+    padding: 0 84px;
+  }
 
   .wizard-input, .wizard-select{
     border: 1px solid #000000;
@@ -36,14 +54,23 @@ body{
     padding: 0 10px;
     line-height: 34px;
     font-size: 14px;
+    width: 169px;
 
     & + .wizard-input, .wizard-select{
       margin-left: 10px;
     }
 
+    &.wizard-input-medium{
+      width: 307px;
+    }
     &.wizard-input-large{
       width: 100%;
     }
+    &.wizard-postcode{
+      width: 124px;
+      margin-right: 14px;
+    }
+
 
     &:focus{
       outline: none;
@@ -54,5 +81,23 @@ body{
   }
   .wizard-marital-status{
     width: 93px;
+  }
+
+  .wizard-legend-small{
+    font-size: 12px;
+  }
+  .wizard-submit{
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    color: #ffffff;
+    background-color: $tester-green-light;
+    border: 1px solid $tester-green-light;
+    margin: 0;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    font-family: $tester-font-bold;
+    text-transform: uppercase;
   }
 }
