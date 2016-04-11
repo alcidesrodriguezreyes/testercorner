@@ -1,0 +1,58 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix{
+  &:before, &:after{
+    display: table;
+    content: " ";
+  }
+  &:after{
+    clear: both;
+  }
+}
+.tester-wizard-container{
+  *{
+    box-sizing: border-box;
+  }
+  ::-webkit-input-placeholder{
+    color: #000000;
+  }
+  ::-moz-placeholder{
+    color: #000000;
+  }
+  :-ms-input-placeholder{
+    color: #000000;
+  }
+  :-moz-placeholder{
+    color: #000000;
+  }
+
+  .wizard-input, .wizard-select{
+    border: 1px solid #000000;
+    border-radius: 3px;
+    height: 34px;
+    padding: 0 10px;
+    line-height: 34px;
+    font-size: 14px;
+
+    & + .wizard-input, .wizard-select{
+      margin-left: 10px;
+    }
+
+    &.wizard-input-large{
+      width: 100%;
+    }
+
+    &:focus{
+      outline: none;
+    }
+  }
+  .wizard-form-group{
+    margin: 0 0 10px;
+  }
+  .wizard-marital-status{
+    width: 93px;
+  }
+}
