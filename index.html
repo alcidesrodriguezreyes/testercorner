@@ -12,47 +12,96 @@
   </head>
   <body>
 
-    <div class="tester-wizard-container clearfix">
+    <div class="tester-wizard-container wizard-step-1 clearfix">
+      <div class="wizard-title">
+        <p>In the <strong>spotlight</strong></p>
+      </div>
+
+      <div class="wizard-legend">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div>
+
+
       <div class="wizard-container-left">
         <img src="tester-product1.png" class="wizard-product" />
       </div>
       <div class="wizard-container-right">
-        <form class="wizard-form">
-          <div class="wizard-form-group">
-            <select class="wizard-select wizard-marital-status">
-              <option>
+        <form class="wizard-form" data-parsley-validate>
+          <div class="wizard-form-group clearfix">
+            <select class="wizard-select wizard-marital-status" required>
+              <option value="">
                 Civilité*
               </option>
-            </select>
-            <input type="text" class="wizard-input" placeholder="Last Name*" />
-            <input type="text" class="wizard-input" placeholder="First Name*" />
-
-          </div>
-
-          <div class="wizard-form-group">
-            <input type="text" class="wizard-input wizard-input-large" placeholder="Address*"  />
-          </div>
-
-          <div class="wizard-form-group">
-            <input type="text" class="wizard-input wizard-postcode" placeholder="Post Code*"  />
-            <input type="text" class="wizard-input wizard-input-medium" placeholder="City*" />
-          </div>
-
-          <div class="wizard-form-group">
-            <select class="wizard-select wizard-input-large">
-              <option>
-                Country*
+              <option value="1">
+                Single
+              </option>
+              <option value="2">
+                Married
               </option>
             </select>
+            <input type="text" class="wizard-input" placeholder="Last Name*" required />
+            <input type="text" class="wizard-input" placeholder="First Name*" required />
+
+          </div>
+
+          <div class="wizard-form-group clearfix">
+            <input type="text" class="wizard-input wizard-input-large" placeholder="Address*" required />
+          </div>
+
+          <div class="wizard-form-group clearfix">
+            <input type="text" class="wizard-input wizard-postcode" placeholder="Post Code*" required  />
+            <input type="text" class="wizard-input wizard-input-medium" placeholder="City*" required />
+          </div>
+
+          <div class="wizard-form-group clearfix">
+            <div class="wizard-select-wrapper">
+              <select class="wizard-select wizard-input-large" required>
+                <option value="">
+                  Country*
+                </option>
+                <option value="1">
+                  France
+                </option>
+              </select>
+            </div>
           </div>
           <span class="wizard-legend-small">* Mandatory fields</span>
-          <div class="wizard-form-group">
+          <div class="wizard-form-group wizard-buttons clearfix">
             <input type="submit" class="wizard-submit" />
           </div>
         </form>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script>
+      window.ParsleyConfig = {
+        errorsContainer: function(ParsleyField){
+          var container = ParsleyField.$element.closest('.wizard-container-right');
+          return container;
+        },
+      };
 
+
+    </script>
+    <script src="parsley.min.js"></script>
+    <script>
+      window.Parsley.on('field:error', function() {
+        // This global callback will be called for any field that fails validation.
+        var el = this.$element;
+        var data = el.data();
+        $('.error-'+data.parsleyId).remove();
+        el.closest('.wizard-form-group').append('<div class="wizard-error-icon error-'+data.parsleyId+'"></div>');
+        //console.log(this.$element.data().parsleyId);
+      });
+      window.Parsley.on('field:success', function() {
+        // This global callback will be called for any field that fails validation.
+        //this.$element.closest('.wizard-form-group').find('.wizard-error-icon').remove();
+        //console.log(this.$element.data());
+        var el = this.$element;
+        var data = el.data();
+        $('.error-'+data.parsleyId).remove();
+      });
+    </script>
 
   </body>
 </html>
