@@ -3,6 +3,9 @@ body{
   padding: 0;
 }
 
+$tester-font: AvantGarde, Arial, sans-serif;
+$tester-font-bold: AvantGardeDemi, Arial, sans-serif;
+$tester-green-light: #b4c832;
 .clearfix{
   &:before, &:after{
     display: table;
@@ -13,9 +16,14 @@ body{
   }
 }
 .tester-wizard-container{
+  width: 952px;
+  margin: 0 auto;
+  box-sizing: border-box;
   *{
     box-sizing: border-box;
+    font-family: $tester-font;
   }
+
   ::-webkit-input-placeholder{
     color: #000000;
   }
@@ -28,6 +36,42 @@ body{
   :-moz-placeholder{
     color: #000000;
   }
+  .wizard-title{
+    font-size: 28px;
+    font-family: AvantGarde,Arial,sans-serif;
+    color: #004532;
+    margin: 0 0 25px;
+    width: 100%;
+    text-align: center;
+    line-height: 1.2;
+    text-transform: uppercase;
+    *{
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+    strong{
+      font-weight: bold;
+    }
+  }
+  .wizard-legend{
+    width: 640px;
+    margin: 0 auto 30px;
+    text-align: center;
+    color: #000000;
+  }
+
+  .wizard-container-left{
+    float: left;
+  }
+  .wizard-container-right{
+    float: right;
+  }
+
+  .wizard-form{
+    width: 628px;
+    padding: 0 84px;
+  }
 
   .wizard-input, .wizard-select{
     border: 1px solid #000000;
@@ -36,23 +80,182 @@ body{
     padding: 0 10px;
     line-height: 34px;
     font-size: 14px;
+    width: 169px;
 
-    & + .wizard-input, .wizard-select{
+    & + .wizard-input, & + .wizard-select{
       margin-left: 10px;
     }
 
+    &.wizard-input-medium{
+      width: 307px;
+    }
     &.wizard-input-large{
       width: 100%;
     }
+    &.wizard-postcode{
+      width: 124px;
+      margin-right: 14px;
+    }
+
 
     &:focus{
       outline: none;
     }
+    //error
+    &.parsley-error{
+      border-color: #de0101;
+    }
+    &.parsley-success{
+      border-color: #b4c832;
+    }
+
   }
+  .parsley-errors-list + .wizard-input, .parsley-errors-list + .wizard-select{
+    margin-left: 10px;
+  }
+  .parsley-errors-list{
+    position: relative;
+    height: 1px;
+    width: 1px;
+    margin: 0;
+    display: inline;
+    padding: 0;
+    > li{
+      display: none;
+    }
+  }
+
+  .wizard-select-wrapper{
+    position: relative;
+    &:after{
+      display: block;
+      content: " ";
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      border: 1px solid red;
+      width: 30px;
+      background-color: #ffffff;
+      background-image: url(tester-select-arrow.png);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
   .wizard-form-group{
     margin: 0 0 10px;
+    position: relative;
   }
   .wizard-marital-status{
     width: 93px;
+  }
+
+  .wizard-legend-small{
+    font-size: 12px;
+  }
+  .wizard-buttons{
+    margin-top: 40px;
+    width: 100%;
+  }
+  .wizard-submit{
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    color: #ffffff;
+    background-color: $tester-green-light;
+    border: 1px solid $tester-green-light;
+    margin: 0;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    font-family: $tester-font-bold;
+    text-transform: uppercase;
+  }
+
+  &.wizard-step-1{
+    width: 791px;
+    .wizard-legend{
+      width: 640px;
+      margin-left: 0;
+      text-indent: 10px;
+    }
+    .wizard-title{
+      width: 640px;
+    }
+    .wizard-container-left{
+      width: 143px;
+      text-align: center;
+    }
+    .wizard-container-right{
+      width: 628px;
+    }
+  }
+
+  .wizard-error-icon{
+    display: block;;
+    position: absolute;
+    background-image: url(tester-icons.png);
+    background-position: top left -30px;
+    background-repeat: no-repeat;
+    top: 0;
+    right: -43px;
+    width: 33px;
+    height: 33px;
+    z-index: 3;
+  }
+
+}
+
+
+@media only screen and (max-width: 600px){
+  .tester-wizard-container{
+    width: 100%;
+    padding: 0 20px;
+    &.wizard-step-1{
+      width: 100%;
+      .wizard-title{
+        width: 100%;
+      }
+      .wizard-legend{
+        width: 100%;
+      }
+      .wizard-container-left{
+        width: 100%;
+      }
+      .wizard-container-right{
+        width: 100%;
+      }
+    }
+
+    .wizard-form{
+      width: 100%;
+      padding: 0;
+    }
+    .wizard-input{
+      width: 100%;
+    }
+    .wizard-select, .wizard-input{
+      margin: 0;
+      display: inline-block;
+      &.wizard-postcode{
+        width: 132px;
+      }
+      &.wizard-input-medium{
+        width: 100%;
+      }
+
+      & + .wizard-select, & + .wizard-input{
+        margin: 10px 0 0;
+      }
+      /*
+      &.wizard-city{
+        width: 237px;
+        float: right;
+        //margin-top: 0 !important;
+      }*/
+    }
+
+
   }
 }
