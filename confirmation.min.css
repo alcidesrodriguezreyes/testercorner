@@ -1,0 +1,75 @@
+.tester-wizard-container {
+  overflow: hidden; }
+
+.mobile-only {
+  display: none; }
+
+.confirmation-sample {
+  width: 650px; }
+  .confirmation-sample .image-wrapper {
+    display: block;
+    width: 25%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    vertical-align: top;
+    float: left;
+    margin: 0 5% 0 0;
+    text-align: center; }
+    .confirmation-sample .image-wrapper .product {
+      max-height: 250px;
+      width: auto;
+      margin: 0 auto; }
+    .confirmation-sample .image-wrapper .check {
+      position: absolute;
+      top: 45%;
+      left: 70%; }
+  .confirmation-sample .content-wrapper {
+    display: block;
+    width: 70%;
+    box-sizing: border-box;
+    overflow: hidden;
+    vertical-align: top;
+    float: left; }
+    .confirmation-sample .content-wrapper .subtitle-green {
+      color: #b4c832;
+      font-size: 16px;
+      text-transform: uppercase; }
+    .confirmation-sample .content-wrapper .subtitle {
+      font-weight: bold;
+      font-size: 22px; }
+    .confirmation-sample .content-wrapper p {
+      font-size: 14px; }
+    .confirmation-sample .content-wrapper input.wizard-submit {
+      text-transform: uppercase;
+      cursor: pointer; }
+
+@media only screen and (max-width: 600px) {
+  .mobile-only {
+    display: block; }
+
+  .desktop-only {
+    display: none; }
+
+  .confirmation-sample {
+    width: 100%; }
+    .confirmation-sample .image-wrapper {
+      width: 100%;
+      margin: 0;
+      float: none; }
+      .confirmation-sample .image-wrapper .subtitle-green {
+        text-align: center;
+        color: #b4c832;
+        font-size: 16px;
+        text-transform: uppercase;
+        margin: 0 auto 10px; }
+    .confirmation-sample .content-wrapper {
+      width: 100%;
+      float: none;
+      padding: 0 5%; }
+      .confirmation-sample .content-wrapper .subtitle {
+        font-size: 18px; }
+      .confirmation-sample .content-wrapper input.wizard-submit {
+        margin: 40px auto 0; } }
+
+/*# sourceMappingURL=confirmation.min.css.map */
