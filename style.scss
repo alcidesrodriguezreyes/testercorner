@@ -18,6 +18,7 @@ $tester-green-light: #b4c832;
 .tester-wizard-container{
   width: 952px;
   margin: 0 auto;
+  box-sizing: border-box;
   *{
     box-sizing: border-box;
     font-family: $tester-font;
@@ -204,4 +205,57 @@ $tester-green-light: #b4c832;
     z-index: 3;
   }
 
+}
+
+
+@media only screen and (max-width: 600px){
+  .tester-wizard-container{
+    width: 100%;
+    padding: 0 20px;
+    &.wizard-step-1{
+      width: 100%;
+      .wizard-title{
+        width: 100%;
+      }
+      .wizard-legend{
+        width: 100%;
+      }
+      .wizard-container-left{
+        width: 100%;
+      }
+      .wizard-container-right{
+        width: 100%;
+      }
+    }
+
+    .wizard-form{
+      width: 100%;
+      padding: 0;
+    }
+    .wizard-input{
+      width: 100%;
+    }
+    .wizard-select, .wizard-input{
+      margin: 0;
+      display: inline-block;
+      &.wizard-postcode{
+        width: 132px;
+      }
+      &.wizard-input-medium{
+        width: 100%;
+      }
+
+      & + .wizard-select, & + .wizard-input{
+        margin: 10px 0 0;
+      }
+      /*
+      &.wizard-city{
+        width: 237px;
+        float: right;
+        //margin-top: 0 !important;
+      }*/
+    }
+
+
+  }
 }
